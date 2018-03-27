@@ -17,10 +17,7 @@
 
 <style>
   @import "../../assets/fonts/iconfont/iconfont.css";
-  .empty40 { height: 40px; }
-  footer { width: 100%; height: 40px; position: fixed; left: 0; right: 0; bottom: 0; }
-  footer>ul>li { width: 20%; height: 100%; float: left;  }
-
+  @import "../../assets/css/home.css";
 </style>
 
 <script>

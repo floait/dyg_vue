@@ -1,12 +1,20 @@
 /*nav*/
-.nav { width: 100%; height: 40px; background-color: #f3f3f3; }
-.nav a {
-  display: block;
-  float: left;
+nav { width: 100%; height: 40px; background-color: #f3f3f3; }
+nav .tab {
   width: 50%;
   height: 100%;
+  float: left;
 }
-.nav a.active {
+nav a {
+  display: block;
+  width: 80px;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 40px;
+
+}
+nav .tab.active a {
   color: #007aff;
   border-bottom: solid 1px #007aff;
 }
@@ -20,8 +28,110 @@
 .container {
   width: 100%; }
 .botton-list {
-  width: 100%; }
-.botton-list a { display: block; float: left; width: 100px; height: 60px;  }
-.botton-list ul li { width: 100%; height: 100%; margin-right: -100px; padding-right: 100px; }
+  width: 100%;
+  height: 60px;
+  display: flex;
+  display: -webkit-flex;
+  background-color: #ebebeb;
 
+
+}
+.botton-list a {width: 100px;height: 60px;flex-grow: 0; }
+.botton-list a img { width: 100%; }
+.botton-list ul {
+  -moz-box-flex: 0;
+  -webkit-box-flex: 0;
+  box-flex: 0;
+  flex-grow: 1;
+}
+.botton-list ul li {
+  display: flex;
+  width: 33.3333%;
+  float: left;
+}
+.botton-list ul i.iconfont {
+  display: block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 auto;
+  margin-top: 5px;
+  border-radius: 50%;
+  color: #FFFFFF;
+}
+.botton-list ul li:first-child i.iconfont {
+  background-color: #ff4969;
+}
+.botton-list ul li:nth-child(2) i.iconfont {
+  background-color: #28eaaa;
+}
+.botton-list ul li:last-child i.iconfont {
+  background-color: #fcd100;
+}
+
+ .botton-list ul a {
+  width: 100%;
+  height: 100%;
+}
+.botton-list ul a span {
+  font-size: 70%;
+  line-height: 25px;
+  color: #333;
+}
+
+/*main*/
+.mainbav {
+  width:100%;
+  height: 40px;
+  margin-bottom: 5px;
+}
+.mainbav ul{
+  display: -webkit-flex;
+}
+.mainbav li {
+  width: 20%;
+  flex: auto;
+  /*float: left;*/
+}
+.mainbav li a {
+  width: 100%; font-size: 90%;
+  border-bottom: #9c9c9c solid 1px;
+  color: #808080; }
+.mainbav ul li.active a {
+  border-bottom: #007aff solid 2px;
+  color: #333333;
+}
+
+/*main-list*/
+.main-list li {
+  height: 85px;
+  border-bottom: solid 1px #e0e0e0;
+}
+.main-list li .list-left {
+  float: left;
+  width: 90px;
+  height: 100%;
+}
+.main-list li .list-left img {
+  width: 70px;
+}
+.main-list li .list-right {
+  width: 100%;
+  margin-right: -90px;
+  text-align: left;
+  /*padding-right: 90px;*/
+}
+.main-list li .list-right a {
+  text-align: left;
+  font-size: 100%;
+  color: #333333;
+}
+.main-list li .list-right .message {
+  padding: 10px 5px;
+  text-align: right;
+}
+.main-list li .list-right .message i.iconfont {
+  color: #808080; }
+.main-list li .list-right .message span {
+  color: #808080; }
 

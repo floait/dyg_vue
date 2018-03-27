@@ -2,8 +2,12 @@
   <div>
     <!--导航 tab-->
     <nav>
-      <a href="javascript:void(0)">知识库</a>
-      <a href="javascript:void(0)">社区互动</a>
+      <div class="tab" :class="{active:showNav == '1'}"  @click="showNav = '1';changeList(1)">
+          <a href="javascript:void(0)" class="">知识库</a>
+      </div>
+      <div class="tab" :class="{active:showNav == '2'}"   @click="showNav = '2';changeList(6)">
+          <a href="javascript:void(0)">社区互动</a>
+      </div>
     </nav>
 
     <!-- swiper -->
@@ -13,65 +17,279 @@
     </swiper>
     <!--end swiper-->
 
-    <!--buttonlist-->
+    <!--container-->
     <div class="container">
-      <div class="botton-list">
+      <!--buttonlist-->
+
+      <div v-if="showNav == '1'" class="botton-list">
         <a href='javascript:void(0)'>
           <img src="../../../assets/img/5.jpg" alt="">
         </a>
         <ul>
           <li>
             <a href="javascript:void(0)">
-              <!--i.iconfont.icon- -->
+              <i class="iconfont icon icon-wuuiconsuotanhao"></i>
               <span>高尿酸危害</span>
             </a>
           </li>
           <li>
             <a href="javascript:void(0)">
-              <!--i.iconfont.icon- -->
+              <i class="iconfont icon icon-jiedanjilumian"></i>
               <span>高尿酸百科</span>
             </a>
           </li>
           <li>
             <a href="javascript:void(0)">
-              <!--i.iconfont.icon- -->
+              <i class="iconfont icon icon-apple-and-pear"></i>
               <span>食物库</span>
             </a>
           </li>
         </ul>
       </div>
+      <div v-else class="notice">
+        <li v-for="item in listNotice" :class="{active:showList == item.listKey}" @click="changeList(item.listKey)"><a href=""><b>公告</b><span>阳光医生项目正式启动</span></a></li>
+      </div>
       <!--end buttonlist-->
       <!--main-->
       <nav class="mainbav">
-        <ul>
-          <li  v-for="item in listNav" :key="item.id" @click="changeList(item.listKey)"><a href="javascript:void(0)">{{item.title}}</a></li>
+        <ul v-show="showNav == 1">
+          <li v-for="item in listNav" :key="item.id" :class="{active:showList == item.listKey}" @click="changeList(item.listKey)"><a href="javascript:void(0)">{{item.title}}</a></li>
+        </ul>
+        <ul v-show="showNav == 2">
+          <li v-for="item in listNav2" :key="item.id" :class="{active:showList == item.listKey}" @click="changeList(item.listKey)"><a href="javascript:void(0)">{{item.title}}</a></li>
         </ul>
       </nav>
       <div class="main-list">
         <ul v-if="showList == 1">
-          <li>list1</li>
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>痛风检查利器--双能量TC</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>痛风检查利器--双能量TC</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>痛风检查利器--双能量TC</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>痛风检查利器--双能量TC</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
         </ul>
         <ul v-else-if="showList == 2">
-          <li>list2</li>
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>资讯</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>痛风检查利器--双能量TC</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>痛风检查利器--双能量TC</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
         </ul>
         <ul v-else-if="showList == 3">
-          <li>list3</li>
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>专家课堂</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>痛风检查利器--双能量TC</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>痛风检查利器--双能量TC</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
         </ul>
         <ul v-else-if="showList == 4">
-          <li>list4</li>
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>医学前沿</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>痛风检查利器--双能量TC</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>痛风检查利器--双能量TC</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul v-else-if="showList == 5">
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>慢友故事</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>痛风检查利器--双能量TC</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>痛风检查利器--双能量TC</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul v-else-if="showList == 6">
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>全部</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul v-else-if="showList == 7">
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>动态</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul v-else-if="showList == 8">
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>经验</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
         </ul>
         <ul v-else>
-          <li>list5</li>
+          <li>
+            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+            <div class="list-right">
+              <a>咨询</a>
+              <div class="message">
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+              </div>
+            </div>
+          </li>
         </ul>
+
 
       </div>
       <!--end main-->
     </div>
+    <!--end container-->
 
   </div>
 </template>
 
 <style>
+  @import "../../../assets/css/base.css";
   @import "../../../assets/css/swiper.min.css";
   @import "../../../assets/css/polularScience.css";
 </style>
@@ -109,6 +327,19 @@
             {listKey: 4,title: "医学前沿"},
             {listKey: 5,title: "慢友故事"}
           ],
+          listNav2: [
+            {listKey: 6,title: "全部"},
+            {listKey: 7,title: "动态"},
+            {listKey: 8,title: "经验"},
+            {listKey: 9,title: "咨询"}
+          ],
+          listNotice: [
+            {type:"公告",title:"阳光医生项目正式启动",discription: "阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动"},
+            {type:"公告",title:"阳光医生项目正式启动",discription: "阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动"},
+            {type:"公告",title:"阳光医生项目正式启动",discription: "阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动"},
+            {type:"公告",title:"阳光医生项目正式启动",discription: "阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动"}
+
+          ],
           showList: 1,
           swiperOption: {
             autoplay: 3000,
@@ -116,7 +347,8 @@
             pagination: {
               el: '.swiper-pagination'
             }
-          }
+          },
+          showNav: 1
         }
       },
       mounted(){
@@ -131,6 +363,9 @@
       methods: {
         changeList(listKey){
           this.showList = listKey;
+        },
+        changeNav(){
+
         }
       }
     }
