@@ -102,6 +102,28 @@ nav .tab.active a {
   color: #333333;
 }
 
+/*noice*/
+.notice li>a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+}
+.notice b {
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  font-size: 80%;
+  text-align: center;
+  line-height: 20px;
+  margin: 5px 10px;
+  color: #27eda2;
+  border: 1px solid #27eda2;
+}
+.notice span {
+  color: #333;
+}
+
 /*main-list*/
 .main-list li {
   height: 85px;

@@ -47,7 +47,11 @@
         </ul>
       </div>
       <div v-else class="notice">
-        <li v-for="item in listNotice" :class="{active:showList == item.listKey}" @click="changeList(item.listKey)"><a href=""><b>公告</b><span>阳光医生项目正式启动</span></a></li>
+        <ul>
+          <li v-for="item in listNotice" :key="item.id">
+            <a href="javascript:void(0)"><b>公告</b><span>阳光医生项目正式启动</span></a>
+          </li>
+        </ul>
       </div>
       <!--end buttonlist-->
       <!--main-->
@@ -231,18 +235,44 @@
           </li>
         </ul>
         <ul v-else-if="showList == 6">
+          <!--dynamics-->
           <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>全部</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+            <div class="list-header">
+              <div class="list-header-img"><img src="" alt=""></div>
+              <div class="list-header-text">
+                <div class="line"><b>13000000000</b><span>Lv1</span></div>
+                <div class="line">尿酸值:222</div>
+              </div>
+            </div>
+            <div class="list-body">
+              <p>这是一个测试2018.03.28</p>
+              <div class="img-box">
+                <img src="" alt="img1">
+                <img src="" alt="img2">
+                <img src="" alt="img3">
+              </div>
+              <div class="list-body-time">
+                3/28 17:20 <span>东莞</span>·<span>长安</span> <span class="dynamics">动态</span>
+              </div>
+            </div>
+            <div class="list-footer">
+              <div class="line">
+                <div class="visit fr">
+                  <!--i.iconfont.icon.-->
+                </div>
+                <div class="replay fl">
+                  <!--i.iconfont.icon.-->
+                </div>
+                <div class="collection fl">
+                  <!--i.iconfont.icon.-->
+                  <span>0</span>
+                </div>
               </div>
             </div>
           </li>
         </ul>
-        <ul v-else-if="showList == 7">
+        <ul v-else-if="showList == 7
+">
           <li>
             <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
             <div class="list-right">
@@ -339,6 +369,36 @@
             {type:"公告",title:"阳光医生项目正式启动",discription: "阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动"},
             {type:"公告",title:"阳光医生项目正式启动",discription: "阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动"}
 
+          ],
+          dynamic: [
+            {
+              id: 1,
+              user: {
+                username: '13000000000',
+                nickname: "一条咸鱼",
+                level: "1",
+                uricacid: "222",
+                thumb: ""
+              },
+              message:{
+                id: 1,
+                text: "这是一个测试",
+                img:[
+                  {url:"/static/img/1.jpg"},
+                  {url:"/static/img/1.jpg"}
+                ],
+                time: "1522220040038",
+                areas: {
+                  areasCity: '东莞',
+                  areasTown: '长安'
+                },
+                interaction: {
+                  replay: '3',
+                  collection: '收藏',
+                  visit: '28'
+                }
+              }
+            }
           ],
           showList: 1,
           swiperOption: {
