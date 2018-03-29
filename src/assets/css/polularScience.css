@@ -156,4 +156,38 @@ nav .tab.active a {
   color: #808080; }
 .main-list li .list-right .message span {
   color: #808080; }
+.main-list li .list-header {
+  height: 60px;
+}
+.main-list li .list-header .line { margin-bottom: 0; height: 25px }
+.main-list li .list-header .list-header-img {
+  width: 40px;
+  height: 40px;
+  margin: 10px 15px;
+  background-color: violet;
+  border-radius: 50%;
+  float: left;
+}
+.main-list li .list-header .list-header-text {
+  font-size: 90%;
+  line-height: 24px;
+}
+.main-list li .list-header .line b
+.main-list li .list-header .line span {
+  float: left;
+}
+.main-list li .list-header .line span {
+  display: inline;
+  height: 18px;
+  width: auto;
+  line-height: 18px;
+  padding: 0 5px;
+  margin-left: 5px;
+}
+.main-list li .list-body p {
+  color: #333;}
+.main-list li .list-body .img-box {
+  width: 50px;
+  height: 50px;
+}
 
