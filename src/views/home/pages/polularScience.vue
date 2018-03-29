@@ -357,6 +357,9 @@
             {listKey: 4,title: "医学前沿"},
             {listKey: 5,title: "慢友故事"}
           ],
+          keyList: [{key:"value"},{key:"value"}],
+          keyList: [{key:"key1",value:"value"},{key:"key1",value:"value"}],
+
           listNav2: [
             {listKey: 6,title: "全部"},
             {listKey: 7,title: "动态"},

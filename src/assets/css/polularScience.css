@@ -184,6 +184,12 @@ nav .tab.active a {
   padding: 0 5px;
   margin-left: 5px;
 }
+.main-list li{
+  height: auto;
+  min-height: 80px;
+}
+.main-list .list-body {
+  padding: 8px 10px;}
 .main-list li .list-body p {
   color: #333;}
 .main-list li .list-body .img-box {
