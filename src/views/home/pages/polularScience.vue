@@ -12,7 +12,7 @@
 
     <!-- swiper -->
     <swiper class="swiper-box" :options="swiperOption" ref="mySwiper">
-      <swiper-slide v-for="item in listImg" :key="item.id" @mouseenter.native="stopPlay" @mouseleave.native="play" ><img class="swiper-image" :src="item.url" :alt="item.url" /></swiper-slide>
+      <swiper-slide v-for="item in listImg" :key="item.id" ><img class="swiper-image" :src="item.url" :alt="item.url" /></swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
     <!--end swiper-->
@@ -49,7 +49,7 @@
       <div v-else class="notice">
         <ul>
           <li v-for="item in listNotice" :key="item.id">
-            <a href="javascript:void(0)"><b>公告</b><span>阳光医生项目正式启动</span></a>
+            <a href="javascript:void(0)"><b>{{item.type}}</b><span>{{item.title}}</span></a>
           </li>
         </ul>
       </div>
@@ -236,43 +236,47 @@
         </ul>
         <ul v-else-if="showList == 6">
           <!--dynamics-->
-          <li>
+          <li v-for="item in dynamic" :key="item.id">
             <div class="list-header">
-              <div class="list-header-img"><img src="" alt=""></div>
+              <div class="list-header-img"><img src="item.user.thumb" alt=""></div>
               <div class="list-header-text">
-                <div class="line"><b>13000000000</b><span>Lv1</span></div>
-                <div class="line">尿酸值:222</div>
+                <div class="line"><b>{{item.user.nickname}}</b><span>Lv{{item.user.level}}</span></div>
+                <div class="line">尿酸值:{{item.user.uricacid}}</div>
               </div>
             </div>
             <div class="list-body">
-              <p>这是一个测试2018.03.28</p>
+              <p>{{item.message.text}}</p>
               <div class="img-box">
-                <img src="" alt="img1">
-                <img src="" alt="img2">
-                <img src="" alt="img3">
+                <img v-for="img in item.message.img" :key="img.id" :src="img.url" alt="img1">
               </div>
               <div class="list-body-time">
-                3/28 17:20 <span>东莞</span>·<span>长安</span> <span class="dynamics">动态</span>
+                <!--<div>-->
+                  <span>3/28 17:20</span><span>东莞·长安</span>
+                <!--</div>-->
+                <span class="dynamics">动态</span>
               </div>
             </div>
             <div class="list-footer">
               <div class="line">
                 <div class="visit fr">
                   <!--i.iconfont.icon.-->
+                  <i>aaa</i>
                 </div>
                 <div class="replay fl">
                   <!--i.iconfont.icon.-->
+                  <i>bbb</i>
+
                 </div>
                 <div class="collection fl">
                   <!--i.iconfont.icon.-->
+
                   <span>0</span>
                 </div>
               </div>
             </div>
           </li>
         </ul>
-        <ul v-else-if="showList == 7
-">
+        <ul v-else-if="showList == 7">
           <li>
             <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
             <div class="list-right">
@@ -364,10 +368,10 @@
             {listKey: 9,title: "咨询"}
           ],
           listNotice: [
-            {type:"公告",title:"阳光医生项目正式启动",discription: "阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动"},
-            {type:"公告",title:"阳光医生项目正式启动",discription: "阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动"},
-            {type:"公告",title:"阳光医生项目正式启动",discription: "阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动"},
-            {type:"公告",title:"阳光医生项目正式启动",discription: "阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动"}
+            {type:"公告",title:"阳光医生项目正式启动1",discription: "阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动"},
+            {type:"公告",title:"阳光医生项目正式启动2",discription: "阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动"},
+            {type:"公告",title:"阳光医生项目正式启动3",discription: "阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动"},
+            {type:"公告",title:"阳光医生项目正式启动4",discription: "阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动阳光医生项目正式启动"}
 
           ],
           dynamic: [
@@ -384,6 +388,10 @@
                 id: 1,
                 text: "这是一个测试",
                 img:[
+                  {url:"/static/img/1.jpg"},
+                  {url:"/static/img/1.jpg"},
+                  {url:"/static/img/1.jpg"},
+                  {url:"/static/img/1.jpg"},
                   {url:"/static/img/1.jpg"},
                   {url:"/static/img/1.jpg"}
                 ],
@@ -402,7 +410,7 @@
           ],
           showList: 1,
           swiperOption: {
-            autoplay: 3000,
+            autoplay: 1000,
             loop: true,
             pagination: {
               el: '.swiper-pagination'
@@ -419,7 +427,6 @@
           this.$router.push('/')
         }
       },
-
       methods: {
         changeList(listKey){
           this.showList = listKey;

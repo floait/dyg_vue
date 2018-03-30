@@ -19,6 +19,7 @@ h1,h2,h3,h4,h5,h6,em,strong,b{font-weight:bold;}
 del,ins,u,s,a,a:hover{text-decoration:none;}
 body{background:#f2f2f2;color:#282828;}
 a,a:hover{color:#333;}
+/*:active { color: #007aff }*/
 
 /* function */
 .f-cb:after,.f-cbli li:after{display:block;clear:both;visibility:hidden;height:0;overflow:hidden;content:".";}
