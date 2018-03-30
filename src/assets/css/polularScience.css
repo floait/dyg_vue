@@ -159,24 +159,32 @@ nav .tab.active a {
 .main-list li .list-header {
   height: 60px;
 }
-.main-list li .list-header .line { margin-bottom: 0; height: 25px }
 .main-list li .list-header .list-header-img {
-  width: 40px;
-  height: 40px;
-  margin: 10px 15px;
-  background-color: violet;
-  border-radius: 50%;
-  float: left;
+width: 40px;
+height: 40px;
+margin: 10px 15px;
+background-color: violet;
+border-radius: 50%;
+float: left;
 }
 .main-list li .list-header .list-header-text {
-  font-size: 90%;
-  line-height: 24px;
+font-size: 90%;
+line-height: 24px;
 }
-.main-list li .list-header .line b
+.main-list li .list-header .line {
+  margin-bottom: 0;
+  height: 25px;
+  text-align: left;
+}
+.main-list li .list-header .line b,
 .main-list li .list-header .line span {
+  display: inline-block;
   float: left;
 }
 .main-list li .list-header .line span {
+  position: inherit;
+  top: auto;
+  right: auto;
   display: inline;
   height: 18px;
   width: auto;
