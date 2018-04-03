@@ -1,5 +1,7 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
-var path = require('path')
+let path = require('path')
+
+
 
 module.exports = {
   build: {

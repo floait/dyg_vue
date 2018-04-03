@@ -23,6 +23,8 @@ import Doctors from '@/views/home/pages/doctors.vue'
 import Medicines from '@/views/home/pages/medicines.vue'
 import Member from '@/views/home/pages/member.vue'
 
+
+
 Vue.use(Router)
 // Vue.use(VueAwesomeSwiper)
 

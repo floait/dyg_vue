@@ -6,9 +6,12 @@ import router from './router'
 import VueResource from 'vue-resource'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
+
 Vue.config.productionTip = false
 Vue.use(VueResource)
 Vue.use(VueAwesomeSwiper)
+
+
 
 // 路由跳转
 Vue.prototype.$goRoute = function (index) {
