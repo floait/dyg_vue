@@ -238,7 +238,7 @@
           <!--dynamics-->
           <li v-for="item in dynamic" :key="item.id">
             <div class="list-header">
-              <div class="list-header-img"><img src="item.user.thumb" alt=""></div>
+              <div class="list-header-img"><img src="item.user.thumb" :alt="item.text"></div>
               <div class="list-header-text">
                 <div class="line"><b>{{item.user.nickname}}</b><span>Lv{{item.user.level}}</span></div>
                 <div class="line">尿酸值:{{item.user.uricacid}}</div>
@@ -258,7 +258,7 @@
             </div>
             <div class="list-footer">
               <div class="line">
-                <div class="visit fr">
+                <div cl ass="visit fr">
                   <!--i.iconfont.icon.-->
                   <i>aaa</i>
                 </div>
