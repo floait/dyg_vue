@@ -1,6 +1,6 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 let path = require('path')
-
+// let aesjs = require('aes-js')
 
 
 module.exports = {
@@ -26,6 +26,7 @@ module.exports = {
   dev: {
     env: require('./dev.env'),
     port: 8080,
+    host: '172.16.119.62',
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',

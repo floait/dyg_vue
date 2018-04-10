@@ -331,7 +331,11 @@
 <script>
   import { setCookie,getCookie,delCookie } from '../../../assets/js/cookie.js'
   import {swiper, swiperSlide} from 'vue-awesome-swiper'
-
+  import aesjs from 'aes-js'
+  import AES from "crypto-js/aes"
+  import SHA256 from "crypto-js/sha256"
+  import CryptoJS from "crypto-js"
+  import { getAesString,getDAesString,getAES,getDAes } from '../../../assets/js/aes.js'
 
   export default {
     name: "polular-science",
@@ -349,17 +353,17 @@
         return {
           listImg:[
             {url: '/static/img/1.jpg'},
-            {url: '/static/img/2.jpg'},
-            {url: '/static/img/3.jpg'},
-            {url: '/static/img/4.jpg'},
-            {url: '/static/img/5.jpg'}
+            {url: '/static/img/1.jpg'},
+            {url: '/static/img/1.jpg'},
+            {url: '/static/img/1.jpg'},
+            {url: '/static/img/1.jpg'}
           ],
           listNav: [
-            {listKey: 1,title: "推荐"},
-            {listKey: 2,title: "资讯"},
-            {listKey: 3,title: "专家课堂"},
-            {listKey: 4,title: "医学前沿"},
-            {listKey: 5,title: "慢友故事"}
+            {listKey: 1, title: "推荐"},
+            {listKey: 2, title: "资讯"},
+            {listKey: 3, title: "专家课堂"},
+            {listKey: 4, title: "医学前沿"},
+            {listKey: 5, title: "慢友故事"}
           ],
           listNav2: [
             {listKey: 6,title: "全部"},
@@ -416,7 +420,8 @@
               el: '.swiper-pagination'
             }
           },
-          showNav: 1
+          showNav: 1,
+          articleType: 1
         }
       },
       mounted(){
@@ -426,14 +431,53 @@
         if(uname == ""){
           this.$router.push('/')
         }
+
+
       },
       methods: {
         changeList(listKey){
           this.showList = listKey;
+          this.articleType = listKey;
+          let param = {
+            pageindex:1,
+            pagenum: 1,
+            type:this.articleType
+          }
+
+          var querystring = require('querystring');
+          this.$ajax.post('http://apptest.hecfit.com/hecdoctor/api/user/article/list', querystring.stringify(param)).then(function(json){console.log(json)});
+          // this.$http.get('http://apptest.hecfit.com/hecdoctor/api/user/article/list',param,{
+          //   headers:{
+          //     'Content-Type': 'application/x-www-form-urlencoded'
+          //   },
+          //   emulateJSON:true
+          // })
+          //   .then(function(response){
+          //
+          //   // 响应成功回调
+          //
+          //   //key:776f726b2f647967
+          //   // response = this.aesjs.utils.hex.fromBytes(response,'776f726b2f647967');
+          //   console.log(1);
+          // }, function(response){
+          //
+          //
+          //   console.log(response)
+          //   // console.log(SHA256("Message"));
+          //
+          //   // console.log("000000")
+          //   // console.log(aesjs.utils.utf8.formBytes(response,'776f726b2f647967'))
+          //
+          // });
+          // console.log(3,getDAes('kS/XhcXn0+7bQPwVzKyke8BG6I57BtD5hqyf/T5DEChUbT7U+uWplAkJ81uEnJ8/OfpY4Tzc3WEvcBixq6rUx4UtncSH3IIZqMcrjlBl9DmyKnOfCcJOpkaWVa66ZQYy2dX+BxmhmTa6g2BH1DYgFJz1xxNRRVEI/B5jwoC4SvDAoV84RKZ42EzR4t5dJc1W57uqGlUkrBQXdwpWSA4zeQANLzBLhHvak2ndStViBzosLWJ8nElZJHDtqoLaF/sdOR6gvBtwFJvdKRGwOS3efQ3a5vs63ZT1ZsFb6aIYOMQWWP9A2YEhnsAkIl7x1H3AczOuQ3EuiMN+kgh3gzm9ufUiNtirYaInVVfYP+kdzVgLq5qJxYgM9Zfz25amIY/4PqlOdOYd5SlFGa1Wq3eipzsI/nWMdXG4KMSptHMHJnrlf5IkvssW9iKhHkVjAZQ+IDCOmexzLd6AtLiiVLtGE/iy0hBYQvCAfUhPSIc8tdScsOpdkMKaUN1eIgcO+uUQ'))
         },
         changeNav(){
 
+        },
+        getArticle (data){
+
         }
+
       }
     }
 </script>
