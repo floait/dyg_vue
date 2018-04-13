@@ -23,6 +23,7 @@ import polularScience from '@/views/home/pages/polularScience.vue'
 import Doctors from '@/views/home/pages/doctors.vue'
 import Medicines from '@/views/home/pages/medicines.vue'
 import Member from '@/views/home/pages/member.vue'
+import foodBank from '@/views/home/pages/foodBank.vue'
 import feedback from '@/views/home/pages/member/feedback.vue'
 import healthRecords from '@/views/home/pages/member/healthRecords.vue'
 import myCollection from '@/views/home/pages/member/myCollection.vue'
@@ -127,6 +128,11 @@ export default new Router({
       path: '/home/pages/member/',
       name: 'about',
       component: about
+    },
+    {
+      path: '/foodBank',
+      name: 'foodBank',
+      component: foodBank
     },
   ]
 })

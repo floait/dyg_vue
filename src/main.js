@@ -9,7 +9,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import aesJs from 'aes-js'
 import VueJsonp from 'vue-jsonp'
 import CryptoJS from 'crypto-js'
-import axios from 'axios'
+// import axios from 'axios'
 
 
 Vue.config.productionTip = false
@@ -27,12 +27,16 @@ Vue.prototype.$goRoute = function (index) {
   this.$router.push(index)
 }
 // ajax
-Vue.prototype.$ajax = axios
+// axios.defaults.headers.post['Content-Type'] = 'application/json';
+// Vue.prototype.$ajax = axios
 
 
 
 Vue.http.options.emulateHTTP = true
 Vue.http.options.emulateJSON = true
+// Vue.http.headers.common['Content-Type'] = 'applacation/json';
+// Vue.http.headers.common['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
+// Vue.http.options.emulateJSON = true
 
 
 /* eslint-disable no-new */
@@ -42,6 +46,7 @@ new Vue({
   data:{
     data:{}
   },
+  replace: false,
   template: '<App/>',
   components: { App },
   render: h => h(App)

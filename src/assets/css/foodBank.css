@@ -1,0 +1,201 @@
+.food-bank {
+  overflow: hidden;
+  background: #ebebeb;
+}
+header a {
+  display: block;
+  width: 50px;
+  color: #FFF;
+}
+header a,
+header a:active,
+header a:hover,
+header a:after {
+  color: #FFF;
+}
+header{
+width: 100%;
+/*background:  rgba(0,0,0,0);*/
+}
+header>.left,header>.main,header>.right{
+float: left;
+min-height: 40px;
+text-align: center;
+  overflow: hidden;
+}
+header>.left{
+margin-left: -100%;
+}
+header>.main {
+  width: 100%;
+}
+header>.right{
+  margin-left: -50px;
+}
+header .content {
+  position: relative;
+  height: 30px;
+  border-radius: 15px;
+  margin: 5px 50px;
+  background: #FFF;
+  line-height: 30px;
+  text-align: left;
+}
+header .content input {
+  background: transparent;
+  text-indent: 25px;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  color: #666;
+  caret-color: #666;
+}
+header .content span {
+  position: relative;
+  top: -30px;
+  left: 25px;
+  text-align: left;
+  color: #666;
+}
+.content i.icon {
+  position: absolute;
+  left: 5px;
+  top: 0;
+  display: block;
+  width: 20px;
+  height: 30px;
+  color: #666;
+}
+nav.navbar {
+  width: 100%;
+  height: auto;
+  background: #FFF;
+  padding: 0 0 10px 0;
+  overflow: hidden;
+}
+nav.navbar a {
+  display: block;
+  float: left;
+  padding-top: 10px;
+  width: 33.3333%;
+}
+nav.navbar a i.icon {
+  font-size: 36px;
+  line-height: 40px;
+  color: #187FF5;
+}
+nav.navbar a span {
+  display: block;
+  height: 20px;
+  width: 85%;
+  max-width: 120px;
+  margin: 0 auto;
+  line-height: 20px;
+  padding: 0 5px;
+  border-radius: 10px;
+  background-color: #187FF5;
+  color: #FFF;
+}
+
+
+/*列表*/
+.list {
+  margin-top: 10px;
+  padding: 0 5px;
+  background-color: white;
+  color: #333;
+  overflow: hidden;
+}
+.list * {
+  color: #333;
+}
+.color-ease {
+  color: #27eda2;
+}
+.color-few {
+  color: #FED201;
+}
+.color-cautious {
+color: #FF4866;
+}
+.list-head {
+  height: 30px;
+  padding: 5px 0;
+}
+.list-head .l-radius {
+
+}
+.list-head .list-title,
+.list-head .list-dr{
+  float: left;
+}
+.list-head .list-title {
+  width: 40%;
+}
+.list-head .list-dr {
+  width: 60%;
+}
+.list-head .list-dr>span {
+  display: block;
+  width: 33.3333%;
+  float: left;
+}
+.list-body li {
+  margin-bottom: 1px;
+  overflow: hidden;
+}
+.list-body li:last-child{
+  margin-bottom: 0;
+}
+.list .list-body .list-left,
+.list .list-body .list-main,
+.list .list-body .list-right{
+  float: left;
+  min-height: 80px;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.list .list-body .list-left {
+  width: 80px;
+  margin-left: -100%;
+}
+.list .list-body .list-right{
+  width: 30px;
+  margin-left: -30px;
+}
+
+.list .list-body .list-main {
+  width: 100%;
+  padding: 0 30px 0 80px;
+}
+
+.list .list-body .list-main .list-content {
+  width: 100%;
+  padding: 5px;
+  text-align: left;
+}
+.list .list-body .list-left img {
+  width: 70px;
+  height: 70px;
+  margin: 5px auto;
+}
+
+.list .list-body .list-main .list-content p {
+  display: block;
+  height: 38px;
+  padding: 4px 0;
+}
+.list .list-body .list-right i {
+  line-height: 80px;
+}
+
+
+
+
+
+
+
+

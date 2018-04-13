@@ -72,6 +72,11 @@ header{position: fixed;top: 0px;left: 0px;width: 100%;z-index: 99;}
 .cl-b{clear: both;}
 .not{color: #15a9ff;text-align: center;font-size: 16px;height: 40px;line-height: 40px;clear: both;}
 .empty{height: 30px;width: auto;}
+.empty10{height: 10px;width: auto;}
+.empty20{height: 20px;width: auto;}
+.empty40{height: 40px;width: auto;}
+.empty50{height: 50px;width: auto;}
+.empty60{height: 60px;width: auto;}
 .header_top{border-bottom: 1px solid #dedede;font-weight: bold;background:#ffffff; color:#212121; text-align: center;position: relative;height: 40px;line-height: 40px;font-size: 16px;}
 .header_top .arrow{position: absolute;left: 10px;font-size: 17px;}
 .header_top .u-textR{position: absolute;right: 15px;font-size: 14px;color: #212121;}
@@ -89,7 +94,7 @@ header{position: fixed;top: 0px;left: 0px;width: 100%;z-index: 99;}
 .f-colorblack{color: black;}
 .f-colorgray{color: gray;}
 .u-bggray{background: #c5c4c4;}
-a:visited{direction: none;}
+a:visited{text-direction: none;}
 .f-fsize12{font-size: 12px;}
 .f-fsize13{font-size: 13px;}
 .f-fsize14{font-size: 14px;}
@@ -142,3 +147,5 @@ a:visited{direction: none;}
 .f-bgWhite{background: white;}
 .f-paddingTB10{padding: 10px 0px;}
 .f-yuan{position: absolute;top: 0px;right: 25px;background: red; width: 15px;height: 15px;line-height: 15px;text-align: center;border-radius: 50%;color: white;font-size: 12px;}
+.l-radius{ display: block; float: left; width: 5px; height: 5px; border-radius: 50%;border-radius: 120em;
+  background: #000;}

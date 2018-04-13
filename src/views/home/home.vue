@@ -16,7 +16,6 @@
 </template>
 
 <style>
-  @import "../../assets/fonts/iconfont/iconfont.css";
   @import "../../assets/css/home.css";
 </style>
 

@@ -27,7 +27,7 @@ module.exports = {
     env: require('./dev.env'),
     port: 8080,
     host: '172.16.119.62',
-    autoOpenBrowser: true,
+    autoOpenBrowser: false,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {},
@@ -36,6 +36,15 @@ module.exports = {
     // (https://github.com/webpack/css-loader#sourcemaps)
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
-    cssSourceMap: false
-  },
+    cssSourceMap: false,
+    // proxyTable: {
+    //   '/api': {
+    //     target: 'http://apptest.hecfit.com/hecdoctor/api/user',
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //       '^/api': '/'
+    //     }
+    //   }
+    // }
+  }
 }

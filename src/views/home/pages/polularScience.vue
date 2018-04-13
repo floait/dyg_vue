@@ -39,7 +39,7 @@
             </a>
           </li>
           <li>
-            <a href="javascript:void(0)">
+            <a href="/foodBank">
               <i class="iconfont icon icon-apple-and-pear"></i>
               <span>食物库</span>
             </a>
@@ -63,255 +63,226 @@
           <li v-for="item in listNav2" :key="item.id" :class="{active:showList == item.listKey}" @click="changeList(item.listKey)"><a href="javascript:void(0)">{{item.title}}</a></li>
         </ul>
       </nav>
-      <div class="main-list">
-        <ul v-if="showList == 1">
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
+      <div  class="main-list">
+        <ul>
+          <li v-for='item in listData.datas' :key="item.id">
+            <div class="list-left"><a :href="item.content_url"><img :src="item.image_url" /></a></div>
             <div class="list-right">
-              <a>痛风检查利器--双能量TC</a>
+              <!--:href="item.content_url" 支持string + obj形式 => 'loalhost' + item.content_url-->
+              <a :href="item.content_url">{{item.title}}</a>
               <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>痛风检查利器--双能量TC</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>痛风检查利器--双能量TC</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>痛风检查利器--双能量TC</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
+                <a href=""><i class="iconfont icon icon-chakan2"></i><span>{{item.read_count}}</span></a>
+                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>{{item.thumbup_count}}</span></a>
               </div>
             </div>
           </li>
         </ul>
-        <ul v-else-if="showList == 2">
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>资讯</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>痛风检查利器--双能量TC</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>痛风检查利器--双能量TC</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <ul v-else-if="showList == 3">
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>专家课堂</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>痛风检查利器--双能量TC</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>痛风检查利器--双能量TC</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <ul v-else-if="showList == 4">
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>医学前沿</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>痛风检查利器--双能量TC</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>痛风检查利器--双能量TC</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <ul v-else-if="showList == 5">
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>慢友故事</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>痛风检查利器--双能量TC</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>痛风检查利器--双能量TC</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <ul v-else-if="showList == 6">
-          <!--dynamics-->
-          <li v-for="item in dynamic" :key="item.id">
-            <div class="list-header">
-              <div class="list-header-img"><img src="item.user.thumb" :alt="item.text"></div>
-              <div class="list-header-text">
-                <div class="line"><b>{{item.user.nickname}}</b><span>Lv{{item.user.level}}</span></div>
-                <div class="line">尿酸值:{{item.user.uricacid}}</div>
-              </div>
-            </div>
-            <div class="list-body">
-              <p>{{item.message.text}}</p>
-              <div class="img-box">
-                <img v-for="img in item.message.img" :key="img.id" :src="img.url" alt="img1">
-              </div>
-              <div class="list-body-time">
-                <!--<div>-->
-                  <span>3/28 17:20</span><span>东莞·长安</span>
+        <!--<ul v-if="showList == 2">-->
+          <!--<li>-->
+            <!--<div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>-->
+            <!--<div class="list-right">-->
+              <!--<a>资讯</a>-->
+              <!--<div class="message">-->
+                <!--<a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>-->
+                <!--<a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>-->
+            <!--<div class="list-right">-->
+              <!--<a>痛风检查利器&#45;&#45;双能量TC</a>-->
+              <!--<div class="message">-->
+                <!--<a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>-->
+                <!--<a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>-->
+            <!--<div class="list-right">-->
+              <!--<a>痛风检查利器&#45;&#45;双能量TC</a>-->
+              <!--<div class="message">-->
+                <!--<a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>-->
+                <!--<a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</li>-->
+        <!--</ul>-->
+        <!--<ul v-else-if="showList == 3">-->
+          <!--<li>-->
+            <!--<div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>-->
+            <!--<div class="list-right">-->
+              <!--<a>专家课堂</a>-->
+              <!--<div class="message">-->
+                <!--<a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>-->
+                <!--<a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>-->
+            <!--<div class="list-right">-->
+              <!--<a>痛风检查利器&#45;&#45;双能量TC</a>-->
+              <!--<div class="message">-->
+                <!--<a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>-->
+                <!--<a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>-->
+            <!--<div class="list-right">-->
+              <!--<a>痛风检查利器&#45;&#45;双能量TC</a>-->
+              <!--<div class="message">-->
+                <!--<a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>-->
+                <!--<a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</li>-->
+        <!--</ul>-->
+        <!--<ul v-else-if="showList == 4">-->
+          <!--<li>-->
+            <!--<div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>-->
+            <!--<div class="list-right">-->
+              <!--<a>医学前沿</a>-->
+              <!--<div class="message">-->
+                <!--<a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>-->
+                <!--<a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>-->
+            <!--<div class="list-right">-->
+              <!--<a>痛风检查利器&#45;&#45;双能量TC</a>-->
+              <!--<div class="message">-->
+                <!--<a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>-->
+                <!--<a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>-->
+            <!--<div class="list-right">-->
+              <!--<a>痛风检查利器&#45;&#45;双能量TC</a>-->
+              <!--<div class="message">-->
+                <!--<a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>-->
+                <!--<a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</li>-->
+        <!--</ul>-->
+        <!--<ul v-else-if="showList == 5">-->
+          <!--<li>-->
+            <!--<div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>-->
+            <!--<div class="list-right">-->
+              <!--<a>慢友故事</a>-->
+              <!--<div class="message">-->
+                <!--<a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>-->
+                <!--<a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>-->
+            <!--<div class="list-right">-->
+              <!--<a>痛风检查利器&#45;&#45;双能量TC</a>-->
+              <!--<div class="message">-->
+                <!--<a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>-->
+                <!--<a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</li>-->
+          <!--<li>-->
+            <!--<div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>-->
+            <!--<div class="list-right">-->
+              <!--<a>痛风检查利器&#45;&#45;双能量TC</a>-->
+              <!--<div class="message">-->
+                <!--<a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>-->
+                <!--<a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</li>-->
+        <!--</ul>-->
+        <!--<ul v-else-if="showList == 6">-->
+          <!--&lt;!&ndash;dynamics&ndash;&gt;-->
+          <!--<li v-for="item in dynamic" :key="item.id">-->
+            <!--<div class="list-header">-->
+              <!--<div class="list-header-img"><img src="item.user.thumb" :alt="item.text"></div>-->
+              <!--<div class="list-header-text">-->
+                <!--<div class="line"><b>{{item.user.nickname}}</b><span>Lv{{item.user.level}}</span></div>-->
+                <!--<div class="line">尿酸值:{{item.user.uricacid}}</div>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="list-body">-->
+              <!--<p>{{item.message.text}}</p>-->
+              <!--<div class="img-box">-->
+                <!--<img v-for="img in item.message.img" :key="img.id" :src="img.url" alt="img1">-->
+              <!--</div>-->
+              <!--<div class="list-body-time">-->
+                <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                  <!--<span>3/28 17:20</span><span>东莞·长安</span>-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--<span class="dynamics">动态</span>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="list-footer">-->
+              <!--<div class="line">-->
+                <!--<div cl ass="visit fr">-->
+                  <!--&lt;!&ndash;i.iconfont.icon.&ndash;&gt;-->
+                  <!--<i>aaa</i>-->
                 <!--</div>-->
-                <span class="dynamics">动态</span>
-              </div>
-            </div>
-            <div class="list-footer">
-              <div class="line">
-                <div cl ass="visit fr">
-                  <!--i.iconfont.icon.-->
-                  <i>aaa</i>
-                </div>
-                <div class="replay fl">
-                  <!--i.iconfont.icon.-->
-                  <i>bbb</i>
+                <!--<div class="replay fl">-->
+                  <!--&lt;!&ndash;i.iconfont.icon.&ndash;&gt;-->
+                  <!--<i>bbb</i>-->
 
-                </div>
-                <div class="collection fl">
-                  <!--i.iconfont.icon.-->
+                <!--</div>-->
+                <!--<div class="collection fl">-->
+                  <!--&lt;!&ndash;i.iconfont.icon.&ndash;&gt;-->
 
-                  <span>0</span>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <ul v-else-if="showList == 7">
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>动态</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <ul v-else-if="showList == 8">
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>经验</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <ul v-else>
-          <li>
-            <div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>
-            <div class="list-right">
-              <a>咨询</a>
-              <div class="message">
-                <a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>
-                <a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>
-              </div>
-            </div>
-          </li>
-        </ul>
+                  <!--<span>0</span>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</li>-->
+        <!--</ul>-->
+        <!--<ul v-else-if="showList == 7">-->
+          <!--<li>-->
+            <!--<div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>-->
+            <!--<div class="list-right">-->
+              <!--<a>动态</a>-->
+              <!--<div class="message">-->
+                <!--<a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>-->
+                <!--<a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</li>-->
+        <!--</ul>-->
+        <!--<ul v-else-if="showList == 8">-->
+          <!--<li>-->
+            <!--<div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>-->
+            <!--<div class="list-right">-->
+              <!--<a>经验</a>-->
+              <!--<div class="message">-->
+                <!--<a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>-->
+                <!--<a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</li>-->
+        <!--</ul>-->
+        <!--<ul v-else>-->
+          <!--<li>-->
+            <!--<div class="list-left"><a href=""><img src="../../../assets/img/2.png" alt=""></a></div>-->
+            <!--<div class="list-right">-->
+              <!--<a>咨询</a>-->
+              <!--<div class="message">-->
+                <!--<a href=""><i class="iconfont icon icon-chakan2"></i><span>10</span></a>-->
+                <!--<a href=""><i class="iconfont icon icon-xiaoxi1"></i><span>20</span></a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</li>-->
+        <!--</ul>-->
 
 
       </div>
@@ -412,6 +383,26 @@
               }
             }
           ],
+          listData : {
+            currentPage: 1,
+            totalPage: 3,
+            nextPage: true,
+            prePage: null,
+            datas: [
+              {
+                dr: 0,
+                ts: "2018-03-07 09:10:50",
+                type: 1,
+                title: "漫画教你如何跟“尿路结石”说拜拜！",
+                summary: null,
+                image_url: "/hecdoctor/article/art_201803070910463.jpg",
+                content_url: "/hecdoctor/html/201803070910506.html",
+                read_count: null,
+                thumbup_count: null,
+                order_weight: 250
+              }
+            ]
+          },
           showList: 1,
           swiperOption: {
             autoplay: 1000,
@@ -435,49 +426,136 @@
 
       },
       methods: {
-        changeList(listKey){
+        changeList: function (listKey) {
+          let param;
           this.showList = listKey;
           this.articleType = listKey;
-          let param = {
-            pageindex:1,
+          param = {
+            pageindex: 1,
             pagenum: 1,
-            type:this.articleType
+            type: this.articleType
           }
-
+          // this.$ajax.defaults.headers.post['Content-Type'] = 'application/json';
+          let response = {};
+          response.data = {
+            "resultCode": "0",
+            "resultMsg": "请求成功",
+            "data": {
+              "currentPage": 1,
+              "totalPage": 3,
+              "nextPage": true,
+              "prePage": null,
+              "datas": [
+                {
+                  "dr": 0,
+                  "ts": "2018-03-07 09:10:50",
+                  "type": 1,
+                  "title": "漫画教你如何跟“尿路结石”说拜拜！",
+                  "summary": null,
+                  "image_url": "/hecdoctor/article/art_201803070910463.jpg",
+                  "content_url": "/hecdoctor/html/201803070910506.html",
+                  "read_count": null,
+                  "thumbup_count": null,
+                  "order_weight": 250
+                },
+                {
+                  "dr": 0,
+                  "ts": "2018-03-07 09:17:05",
+                  "type": 1,
+                  "title": "痛风检查利器——双能量CT",
+                  "summary": null,
+                  "image_url": "/hecdoctor/article/art_201803070916572.jpg",
+                  "content_url": "/hecdoctor/html/2018030709170517.html",
+                  "read_count": null,
+                  "thumbup_count": null,
+                  "order_weight": 200
+                },
+                {
+                  "dr": 0,
+                  "ts": "2018-03-07 09:43:21",
+                  "type": 1,
+                  "title": "痛风患者该怎样运动？",
+                  "summary": null,
+                  "image_url": "/hecdoctor/article/art_201803070943171.jpg",
+                  "content_url": "/hecdoctor/html/201803070943217.html",
+                  "read_count": null,
+                  "thumbup_count": null,
+                  "order_weight": 150
+                }
+              ]
+            }
+          }
+          response.data.resultCode == 0 ? this.listData = response.data.data : true;
+          this.listData = response.data.data
+          console.log(this.listData);
           var querystring = require('querystring');
-          this.$ajax.post('http://apptest.hecfit.com/hecdoctor/api/user/article/list', querystring.stringify(param)).then(function(json){console.log(json)});
-          // this.$http.get('http://apptest.hecfit.com/hecdoctor/api/user/article/list',param,{
-          //   headers:{
-          //     'Content-Type': 'application/x-www-form-urlencoded'
-          //   },
-          //   emulateJSON:true
-          // })
-          //   .then(function(response){
-          //
-          //   // 响应成功回调
-          //
-          //   //key:776f726b2f647967
-          //   // response = this.aesjs.utils.hex.fromBytes(response,'776f726b2f647967');
-          //   console.log(1);
-          // }, function(response){
-          //
-          //
+          // this.$ajax.post('http://apptest.hecfit.com/hecdoctor/api/user/article/list', querystring.stringify(param)).then(function (response) {
           //   console.log(response)
-          //   // console.log(SHA256("Message"));
-          //
-          //   // console.log("000000")
-          //   // console.log(aesjs.utils.utf8.formBytes(response,'776f726b2f647967'))
-          //
+          //   console.log(response)
+          //   response.data.resultCode == 0 ? this.listData = response.data.data : true;
+          //   this.listData = response.data.data
+          //   console.log(this.listData);
           // });
-          // console.log(3,getDAes('kS/XhcXn0+7bQPwVzKyke8BG6I57BtD5hqyf/T5DEChUbT7U+uWplAkJ81uEnJ8/OfpY4Tzc3WEvcBixq6rUx4UtncSH3IIZqMcrjlBl9DmyKnOfCcJOpkaWVa66ZQYy2dX+BxmhmTa6g2BH1DYgFJz1xxNRRVEI/B5jwoC4SvDAoV84RKZ42EzR4t5dJc1W57uqGlUkrBQXdwpWSA4zeQANLzBLhHvak2ndStViBzosLWJ8nElZJHDtqoLaF/sdOR6gvBtwFJvdKRGwOS3efQ3a5vs63ZT1ZsFb6aIYOMQWWP9A2YEhnsAkIl7x1H3AczOuQ3EuiMN+kgh3gzm9ufUiNtirYaInVVfYP+kdzVgLq5qJxYgM9Zfz25amIY/4PqlOdOYd5SlFGa1Wq3eipzsI/nWMdXG4KMSptHMHJnrlf5IkvssW9iKhHkVjAZQ+IDCOmexzLd6AtLiiVLtGE/iy0hBYQvCAfUhPSIc8tdScsOpdkMKaUN1eIgcO+uUQ'))
-        },
-        changeNav(){
-
-        },
-        getArticle (data){
-
+          var url='http://apptest.hecfit.com/hecdoctor/api/user/article/list';
+          url += "?";
+          for(let i in param){
+            let dataistr = i +'='+param[i]+"&"
+            url += dataistr
+          }
+          console.log(url);
+          // let  data = param;
+          param={
+            param:'getDAes'//此处的jsonpCallback是对应的回调函数名称
+          };
+          this.$http.jsonp(url,param,(err,data)=> {
+            if (!err) {
+              console.log(data)
+            }
+            else {
+              console.log(err)
+            }
+          }).then(data => {
+            console.log(data)
+          })
+            // this.$http.jsonp({
+            //   url: 'http://apptest.hecfit.com/hecdoctor/api/user/article/list',
+            //   data: param,
+            //   dataType: "json",
+            //   headers: {
+            //     'Content-Type': 'application/json'
+            //   },
+            //   jsonp: getDAes(),
+            //   jsonpCallback: getDAes()
+            // })
+            //   .then(function (response) {
+            //
+            //     // 响应成功回调
+            //
+            //     //key:776f726b2f647967
+            //     // response = this.aesjs.utils.hex.fromBytes(response,'776f726b2f647967');
+            //     console.log(1);
+            //   },
+            //     function (response) {
+            //
+            //
+            //     console.log(2)
+            //     // console.log(SHA256("Message"));
+            //
+            //     // console.log("000000")
+            //     // console.log(aesjs.utils.utf8.formBytes(response,'776f726b2f647967'))
+            //
+            //   });
         }
-
+      //   changeNav(){
+      //
+      //   },
+      //   getArticle (data){
+      //
+      //   },
+      //
+      // getjsonp(url,data,callback){
+      //
+      // }
       }
     }
 </script>
