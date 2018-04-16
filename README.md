@@ -46,3 +46,10 @@ npm install axios -S
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 # dyg
+
+
+# 20180416 push backup the lasted note
+##个人中心引入图标(未排版)
+##新增食物
+##尝试使用  jsonp 进行跨域,产生问题,原因,未知
+

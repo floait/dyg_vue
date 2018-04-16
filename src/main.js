@@ -7,6 +7,7 @@ import router from './router'
 import VueResource from 'vue-resource'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import aesJs from 'aes-js'
+import $ from 'jquery'
 import VueJsonp from 'vue-jsonp'
 import CryptoJS from 'crypto-js'
 // import axios from 'axios'
@@ -31,10 +32,11 @@ Vue.prototype.$goRoute = function (index) {
 // Vue.prototype.$ajax = axios
 
 
-
+Vue.prototype.HOST = '/apis'
 Vue.http.options.emulateHTTP = true
 Vue.http.options.emulateJSON = true
-// Vue.http.headers.common['Content-Type'] = 'applacation/json';
+// Vue.http.heaers.post['Content-Type'] = 'applacation/json'
+// Vue.http.headers.emulateCOMMON['Content-Type'] = 'applacation/json';
 // Vue.http.headers.common['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
 // Vue.http.options.emulateJSON = true
 

@@ -485,66 +485,72 @@
               ]
             }
           }
-          response.data.resultCode == 0 ? this.listData = response.data.data : true;
-          this.listData = response.data.data
-          console.log(this.listData);
-          var querystring = require('querystring');
-          // this.$ajax.post('http://apptest.hecfit.com/hecdoctor/api/user/article/list', querystring.stringify(param)).then(function (response) {
-          //   console.log(response)
-          //   console.log(response)
-          //   response.data.resultCode == 0 ? this.listData = response.data.data : true;
-          //   this.listData = response.data.data
-          //   console.log(this.listData);
-          // });
-          var url='http://apptest.hecfit.com/hecdoctor/api/user/article/list';
-          url += "?";
-          for(let i in param){
-            let dataistr = i +'='+param[i]+"&"
-            url += dataistr
-          }
-          console.log(url);
-          // let  data = param;
-          param={
-            param:'getDAes'//此处的jsonpCallback是对应的回调函数名称
-          };
-          this.$http.jsonp(url,param,(err,data)=> {
-            if (!err) {
-              console.log(data)
-            }
-            else {
-              console.log(err)
-            }
-          }).then(data => {
-            console.log(data)
+
+          $(function(){
+            $.ajax({
+              method: 'POST',
+              url: '/apis/hecdoctor/api/user/article/list',
+              dataType: 'text',
+              // headers: {
+              //   'Content-Type': 'application/json',
+              // },
+              crossDomain:true,
+              sucsess: function(data){
+                console.log('520 data',data);
+              },
+              error:function (err) {
+                console.log('523 err',err);
+              }
+            })
           })
-            // this.$http.jsonp({
-            //   url: 'http://apptest.hecfit.com/hecdoctor/api/user/article/list',
-            //   data: param,
-            //   dataType: "json",
-            //   headers: {
-            //     'Content-Type': 'application/json'
-            //   },
-            //   jsonp: getDAes(),
-            //   jsonpCallback: getDAes()
-            // })
-            //   .then(function (response) {
-            //
-            //     // 响应成功回调
-            //
-            //     //key:776f726b2f647967
-            //     // response = this.aesjs.utils.hex.fromBytes(response,'776f726b2f647967');
-            //     console.log(1);
-            //   },
-            //     function (response) {
-            //
-            //
-            //     console.log(2)
-            //     // console.log(SHA256("Message"));
-            //
-            //     // console.log("000000")
-            //     // console.log(aesjs.utils.utf8.formBytes(response,'776f726b2f647967'))
-            //
-            //   });
+          // let type = this.articleType
+
+          this.$http.post(
+            '/apis/hecdoctor/api/user/article/list',
+            // {
+            //   "pageindex": 0,
+            //   "pagenum": 0,
+            //   "type": 0
+            // },
+            {
+              pageindex:1,
+              pagenum: 3,
+              type:this.articleType
+            },
+            'Content-Type:application/json',
+            function ( data, status, request ) {
+              if ( status == 200 ) {
+                console.log("537",getDAes(data));
+                consl.dir(data);
+              }else{
+
+                console.log("541",getDAes(data));
+                console.log(status);
+              }
+            }
+          //   {
+          //   'Content-Type': 'applacation/json'
+          // }
+          )
+        .then(function(response){
+            // 响应成功回调
+            console.log("551",1);
+            console.log(response);
+            response.bodyText = getDAes(response.bodyText)
+          console.log('response.bodyText',response.bodyText)
+            //key:776f726b2f647967
+            // response = this.aesjs.utils.hex.fromBytes(response,'776f726b2f647967');
+          }, function(response){
+            console.log("555",getDAes(data));
+            // console.log(getDAes('kS/XhcXn0+7bQPwVzKyke8BG6I57BtD5hqyf/T5DECj5XiuvD3oYQEYqw07vDI8c2Fm0P9bLjv67GN5wKW2HIisCyv+KLkKT4a2ssNzVUljh7KTPiBhrSonobNt1XvT8CtsUkMu+VAr9oxeFyWXj7xzG1aYmanRTaUC8z8fcKaQE91IwMJx7EyWiWlUKHLsa'))
+            console.log("111111")
+            // console.log(SHA256("Message"));
+            // console.log(CryptoJS.HmacSHA1(response,'776f726b2f647967'))
+            // console.log("000000")
+            // console.log(aesjs.utils.utf8.formBytes(response,'776f726b2f647967'))
+
+          });
+
         }
       //   changeNav(){
       //
