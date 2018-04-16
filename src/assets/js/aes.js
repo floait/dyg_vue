@@ -24,7 +24,7 @@ function getDAesString(encrypted,key,iv){//解密
 }
 export function getAES(data){ //加密
   var key  = '776f726b2f647967';  //密钥
-  var iv   = '776f726b2f647967';
+  var iv   = '';
   var encrypted =getAesString(data,key,iv); //密文
   var encrypted1 =CryptoJS.enc.Utf8.parse(encrypted);
   return encrypted;
@@ -32,8 +32,8 @@ export function getAES(data){ //加密
 
 export function getDAes(data){//解密
   var key  = '776f726b2f647967';  //密钥
-  var iv   = '776f726b2f647967';
-  console.log('getDAes(',data,")");
+  var iv   = '16-Bytes--String';
+  // console.log('getDAes(',data,")");
   if(data == null || data == "" || data == undefined) return;
   var decryptedStr =getDAesString(data,key,iv);
   return decryptedStr;

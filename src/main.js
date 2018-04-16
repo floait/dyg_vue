@@ -34,8 +34,9 @@ Vue.prototype.$goRoute = function (index) {
 
 Vue.prototype.HOST = '/apis'
 Vue.http.options.emulateHTTP = true
-Vue.http.options.emulateJSON = true
-// Vue.http.heaers.post['Content-Type'] = 'applacation/json'
+// Vue.http.options.emulateJSON = true
+console.log(Vue.http.headers.post)
+// Vue.http.heaers.post['Content-type'] = 'applacation/json'
 // Vue.http.headers.emulateCOMMON['Content-Type'] = 'applacation/json';
 // Vue.http.headers.common['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
 // Vue.http.options.emulateJSON = true

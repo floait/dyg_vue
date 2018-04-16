@@ -30,6 +30,7 @@ import myCollection from '@/views/home/pages/member/myCollection.vue'
 import resinger from '@/views/home/pages/member/resinger.vue'
 import checktheUpdate from '@/views/home/pages/member/checktheUpdate.vue'
 import about from '@/views/home/pages/member/about.vue'
+import article from '@/views/home/pages/article.vue'
 
 
 
@@ -134,5 +135,10 @@ export default new Router({
       name: 'foodBank',
       component: foodBank
     },
+    {
+      path: '/article',
+      name: 'article',
+      component: article
+    }
   ]
 })

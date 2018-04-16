@@ -302,11 +302,12 @@
 <script>
   import { setCookie,getCookie,delCookie } from '../../../assets/js/cookie.js'
   import {swiper, swiperSlide} from 'vue-awesome-swiper'
-  import aesjs from 'aes-js'
-  import AES from "crypto-js/aes"
-  import SHA256 from "crypto-js/sha256"
-  import CryptoJS from "crypto-js"
+  // import aesjs from 'aes-js'
+  // import AES from "crypto-js/aes"
+  // import SHA256 from "crypto-js/sha256"
+  // import CryptoJS from "crypto-js"
   import { getAesString,getDAesString,getAES,getDAes } from '../../../assets/js/aes.js'
+  import { ajaxpost } from '../../../assets/js/ajax.js'
 
   export default {
     name: "polular-science",
@@ -383,26 +384,7 @@
               }
             }
           ],
-          listData : {
-            currentPage: 1,
-            totalPage: 3,
-            nextPage: true,
-            prePage: null,
-            datas: [
-              {
-                dr: 0,
-                ts: "2018-03-07 09:10:50",
-                type: 1,
-                title: "漫画教你如何跟“尿路结石”说拜拜！",
-                summary: null,
-                image_url: "/hecdoctor/article/art_201803070910463.jpg",
-                content_url: "/hecdoctor/html/201803070910506.html",
-                read_count: null,
-                thumbup_count: null,
-                order_weight: 250
-              }
-            ]
-          },
+          listData : {},
           showList: 1,
           swiperOption: {
             autoplay: 1000,
@@ -422,133 +404,48 @@
         if(uname == ""){
           this.$router.push('/')
         }
-
-
       },
       methods: {
         changeList: function (listKey) {
-          let param;
           this.showList = listKey;
           this.articleType = listKey;
-          param = {
-            pageindex: 1,
-            pagenum: 1,
-            type: this.articleType
-          }
-          // this.$ajax.defaults.headers.post['Content-Type'] = 'application/json';
-          let response = {};
-          response.data = {
-            "resultCode": "0",
-            "resultMsg": "请求成功",
-            "data": {
-              "currentPage": 1,
-              "totalPage": 3,
-              "nextPage": true,
-              "prePage": null,
-              "datas": [
-                {
-                  "dr": 0,
-                  "ts": "2018-03-07 09:10:50",
-                  "type": 1,
-                  "title": "漫画教你如何跟“尿路结石”说拜拜！",
-                  "summary": null,
-                  "image_url": "/hecdoctor/article/art_201803070910463.jpg",
-                  "content_url": "/hecdoctor/html/201803070910506.html",
-                  "read_count": null,
-                  "thumbup_count": null,
-                  "order_weight": 250
-                },
-                {
-                  "dr": 0,
-                  "ts": "2018-03-07 09:17:05",
-                  "type": 1,
-                  "title": "痛风检查利器——双能量CT",
-                  "summary": null,
-                  "image_url": "/hecdoctor/article/art_201803070916572.jpg",
-                  "content_url": "/hecdoctor/html/2018030709170517.html",
-                  "read_count": null,
-                  "thumbup_count": null,
-                  "order_weight": 200
-                },
-                {
-                  "dr": 0,
-                  "ts": "2018-03-07 09:43:21",
-                  "type": 1,
-                  "title": "痛风患者该怎样运动？",
-                  "summary": null,
-                  "image_url": "/hecdoctor/article/art_201803070943171.jpg",
-                  "content_url": "/hecdoctor/html/201803070943217.html",
-                  "read_count": null,
-                  "thumbup_count": null,
-                  "order_weight": 150
-                }
-              ]
-            }
-          }
-
-          $(function(){
-            $.ajax({
-              method: 'POST',
-              url: '/apis/hecdoctor/api/user/article/list',
-              dataType: 'text',
-              // headers: {
-              //   'Content-Type': 'application/json',
-              // },
-              crossDomain:true,
-              sucsess: function(data){
-                console.log('520 data',data);
-              },
-              error:function (err) {
-                console.log('523 err',err);
-              }
-            })
-          })
-          // let type = this.articleType
-
+          // let datas
+          // let url='/apis/hecdoctor/api/user/article/list',
+          //   data = {
+          //     pageindex:1,
+          //     pagenum: 3,
+          //     type:this.articleType
+          //   }
+          //
+          // ajaxpost(url,data)
+          // this.listData = datas;
           this.$http.post(
             '/apis/hecdoctor/api/user/article/list',
-            // {
-            //   "pageindex": 0,
-            //   "pagenum": 0,
-            //   "type": 0
-            // },
             {
               pageindex:1,
               pagenum: 3,
               type:this.articleType
             },
             'Content-Type:application/json',
-            function ( data, status, request ) {
-              if ( status == 200 ) {
-                console.log("537",getDAes(data));
-                consl.dir(data);
-              }else{
-
-                console.log("541",getDAes(data));
-                console.log(status);
-              }
-            }
-          //   {
-          //   'Content-Type': 'applacation/json'
-          // }
           )
         .then(function(response){
             // 响应成功回调
-            console.log("551",1);
             console.log(response);
-            response.bodyText = getDAes(response.bodyText)
-          console.log('response.bodyText',response.bodyText)
-            //key:776f726b2f647967
-            // response = this.aesjs.utils.hex.fromBytes(response,'776f726b2f647967');
-          }, function(response){
-            console.log("555",getDAes(data));
-            // console.log(getDAes('kS/XhcXn0+7bQPwVzKyke8BG6I57BtD5hqyf/T5DECj5XiuvD3oYQEYqw07vDI8c2Fm0P9bLjv67GN5wKW2HIisCyv+KLkKT4a2ssNzVUljh7KTPiBhrSonobNt1XvT8CtsUkMu+VAr9oxeFyWXj7xzG1aYmanRTaUC8z8fcKaQE91IwMJx7EyWiWlUKHLsa'))
-            console.log("111111")
-            // console.log(SHA256("Message"));
-            // console.log(CryptoJS.HmacSHA1(response,'776f726b2f647967'))
-            // console.log("000000")
-            // console.log(aesjs.utils.utf8.formBytes(response,'776f726b2f647967'))
+            if(response.statusText != 'OK') {
+              return
+            }
+          let _data = response.bodyText = JSON.parse(getDAes(response.bodyText))
+          console.log('data:',response.bodyText)
+          console.log(_data.resultMsg)
 
+          if (_data.resultCode == 0){
+              let __data = _data.data;
+              this.listData = __data;
+          }else {
+              alert(_data.resultMsg)
+          }
+          }, function(response){
+            console.log("请求失败")
           });
 
         }

@@ -52,4 +52,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 ##个人中心引入图标(未排版)
 ##新增食物
 ##尝试使用  jsonp 进行跨域,产生问题,原因,未知
+##############################
+# 20180416 push backup the lasted note
+##解决ajax跨域不成功的问题,通过配置代理访问,返回了成功标识,但数据依旧提示请求头错误
 
