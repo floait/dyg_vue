@@ -307,7 +307,7 @@
   // import SHA256 from "crypto-js/sha256"
   // import CryptoJS from "crypto-js"
   import { getAesString,getDAesString,getAES,getDAes } from '../../../assets/js/aes.js'
-  import { ajaxpost } from '../../../assets/js/ajax.js'
+  // import { ajaxpost } from '../../../assets/js/ajax.js'
 
   export default {
     name: "polular-science",
@@ -385,6 +385,12 @@
             }
           ],
           listData : {},
+          listDataSend: {
+            pageindex:1,
+            pagenum: 3,
+            type:1
+
+          },
           showList: 1,
           swiperOption: {
             autoplay: 1000,
@@ -404,13 +410,63 @@
         if(uname == ""){
           this.$router.push('/')
         }
+          let getListData = this.$http.post(
+            '/apis/hecdoctor/api/user/article/list',
+            this.listDataSend,
+            'Content-Type:application/json',
+          )
+          getListData.then(function(response){
+            // 响应成功回调
+            console.log(response);
+            if(response.statusText != 'OK') {
+              return
+            }
+            let _data = response.bodyText = JSON.parse(getDAes(response.bodyText))
+            console.log('data:',response.bodyText)
+            console.log(_data.resultMsg)
+
+            if (_data.resultCode == 0){
+              let __data = _data.data;
+              this.listData = __data;
+            }else {
+              alert(_data.resultMsg)
+            }
+          }, function(response){
+            console.log("请求失败")
+          });
       },
       methods: {
         changeList: function (listKey) {
           this.showList = listKey;
           this.articleType = listKey;
-          // let datas
-          // let url='/apis/hecdoctor/api/user/article/list',
+          this.listDataSend.type = this.articleType
+          // let url='/apis/hecdoctor/api/user/article/list'
+          // ajaxpost(url,this.listDataSend.type)
+          let getListData = this.$http.post(
+            '/apis/hecdoctor/api/user/article/list',
+            this.listDataSend,
+            'Content-Type:application/json',
+          )
+          getListData.then(function(response){
+            // 响应成功回调
+            console.log(response);
+            if(response.statusText != 'OK') {
+              return
+            }
+            let _data = response.bodyText = JSON.parse(getDAes(response.bodyText))
+            console.log('data:',response.bodyText)
+            console.log(_data.resultMsg)
+
+            if (_data.resultCode == 0){
+              let __data = _data.data;
+              this.listData = __data;
+            }else {
+              alert(_data.resultMsg)
+            }
+          }, function(response){
+            console.log("请求失败")
+          });
+            // let datas
           //   data = {
           //     pageindex:1,
           //     pagenum: 3,
@@ -419,34 +475,7 @@
           //
           // ajaxpost(url,data)
           // this.listData = datas;
-          this.$http.post(
-            '/apis/hecdoctor/api/user/article/list',
-            {
-              pageindex:1,
-              pagenum: 3,
-              type:this.articleType
-            },
-            'Content-Type:application/json',
-          )
-        .then(function(response){
-            // 响应成功回调
-            console.log(response);
-            if(response.statusText != 'OK') {
-              return
-            }
-          let _data = response.bodyText = JSON.parse(getDAes(response.bodyText))
-          console.log('data:',response.bodyText)
-          console.log(_data.resultMsg)
 
-          if (_data.resultCode == 0){
-              let __data = _data.data;
-              this.listData = __data;
-          }else {
-              alert(_data.resultMsg)
-          }
-          }, function(response){
-            console.log("请求失败")
-          });
 
         }
       //   changeNav(){
