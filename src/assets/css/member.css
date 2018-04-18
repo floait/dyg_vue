@@ -29,7 +29,8 @@
 }
  .list-box ul li {
    width: 100%;
-   height: 30px;
+   height: 50px;
+   margin-bottom: 1px;
    line-height: 30px;
    text-align: left;
    background: #FFF;
@@ -39,7 +40,35 @@
   display: block;
   width: 100%;
   height: 100%;
+  padding: 10px;
   overflow: hidden;
+}
+.list-box  li a i:first-of-type {
+  font-size: 1.5em;
+  /*line-height: 50px;*/
+  margin-right: 10px;
+  position:relative;
+  top: 3px;
+}
+i.icon-folder {
+  color: rgb(39,234,171);
+}
+i.icon-xin1{
+  color: rgb(250,75,104);
+}
+i.icon-mima{
+  color: rgb(253,209,1);
+}
+i.icon-yijianfankui{
+  color: rgb(1,128,238);
+}
+i.icon-Versionupdaterule-copy{
+  color: rgb(39,234,171);
+}
+i.icon-guanyuwomen{
+}
+.loginout {
+  margin-top: 10px;
 }
 
 

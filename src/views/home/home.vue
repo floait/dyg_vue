@@ -66,12 +66,13 @@
 			let uname = getCookie('username')
 			this.name = uname
 			if(uname == ""){
+        跳转登录
 				this.$router.push('/')
 			}
 		},
 		methods:{
 			quit(){
-				delCookie()
+				delCookie('username')
 				this.$router.push('/')
 			},
 			changeClass(text){

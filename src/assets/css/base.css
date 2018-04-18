@@ -61,7 +61,7 @@ a,a:hover{color:#333;}
 
 header{position: fixed;top: 0px;left: 0px;width: 100%;z-index: 99;}
 .u-btn{display: block; background: #b7434d; width: 80px;height: 40px;line-height: 40px;color: white;font-size: 14px; border-radius: 5px;text-align: center;}
-.u-btn-default{width: 90%; background: #0383fe;  line-height: 40px;margin: 0 auto;}
+  .u-btn-default{width: 90%; background: #0383fe;  line-height: 40px;margin: 0 auto;}
 .u-btn-other{background: rgba(46, 113, 239, 0);height: 38px;line-height: 38px;width: 90%;margin: 15px auto; color: #2e71ef;border: 1px solid #2e71ef;}
 .bg_white{background: white;}
 .bg_250{background: rgb(250,250,233)}
@@ -90,8 +90,8 @@ header{position: fixed;top: 0px;left: 0px;width: 100%;z-index: 99;}
 .f-width30{width: 30% !important;}
 .f-padding2015{padding: 20px 15px;}
 .f-colorwhite{color: white;}
-.f-color9c{color: #9c9c9c;}
 .f-colorblack{color: black;}
+.f-color9c{color: #9c9c9c;}
 .f-colorgray{color: gray;}
 .u-bggray{background: #c5c4c4;}
 a:visited{text-direction: none;}

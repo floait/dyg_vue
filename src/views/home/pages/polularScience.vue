@@ -293,11 +293,14 @@
   </div>
 </template>
 
-<style>
+<style :lang="css">
   @import "../../../assets/css/base.css";
   @import "../../../assets/css/swiper.min.css";
   @import "../../../assets/css/polularScience.css";
 </style>
+<!--<style :lang="less">-->
+  <!--/*@import "../../../components/less/pull-refresh.less";*/-->
+<!--</style>-->
 
 <script>
   import { setCookie,getCookie,delCookie } from '../../../assets/js/cookie.js'
@@ -307,13 +310,14 @@
   // import SHA256 from "crypto-js/sha256"
   // import CryptoJS from "crypto-js"
   import { getAesString,getDAesString,getAES,getDAes } from '../../../assets/js/aes.js'
-  // import { ajaxpost } from '../../../assets/js/ajax.js'
+  import { ajaxpost } from '../../../assets/js/ajax.js'
 
   export default {
     name: "polular-science",
     components: {
       swiper,
-      swiperSlide
+      swiperSlide,
+      // 'v-scroll': require("../../../components/pull-refresh")
     },
     //定义这个sweiper对象
     computed: {
@@ -411,7 +415,7 @@
           this.$router.push('/')
         }
           let getListData = this.$http.post(
-            '/apis/hecdoctor/api/user/article/list',
+            '/hecdoctor/api/user/article/list',
             this.listDataSend,
             'Content-Type:application/json',
           )
@@ -443,7 +447,7 @@
           // let url='/apis/hecdoctor/api/user/article/list'
           // ajaxpost(url,this.listDataSend.type)
           let getListData = this.$http.post(
-            '/apis/hecdoctor/api/user/article/list',
+            '/hecdoctor/api/user/article/list',
             this.listDataSend,
             'Content-Type:application/json',
           )
@@ -466,28 +470,14 @@
           }, function(response){
             console.log("请求失败")
           });
-            // let datas
-          //   data = {
-          //     pageindex:1,
-          //     pagenum: 3,
-          //     type:this.articleType
-          //   }
-          //
-          // ajaxpost(url,data)
-          // this.listData = datas;
 
+        },
+        changeNav(){
+
+        },
+        getArticle (data){
 
         }
-      //   changeNav(){
-      //
-      //   },
-      //   getArticle (data){
-      //
-      //   },
-      //
-      // getjsonp(url,data,callback){
-      //
-      // }
       }
     }
 </script>

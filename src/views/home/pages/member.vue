@@ -8,14 +8,15 @@
     </div>
     <div class="list-box">
       <ul>
-        <li v-for="item in memberMenu" :key="item.id"><a :href="item.url"><i class="iconfont icon" :class="item.icon"></i>{{item.title}} <i class="iconfont icon icon-youjiantou1"></i></a></li>
+        <li v-for="item in memberMenu" :key="item.id"><a :href="item.url"><i class="iconfont icon" :class="item.icon"></i>{{item.title}} <i class="iconfont icon icon-youjiantou1 fr"></i></a></li>
       </ul>
     </div>
-    <a href="javascript:void(0)" class="loginout" @click="WebSocketTest()">退出登录</a>
+    <a href="javascript:void(0)" class="loginout u-btn u-btn-default" @click="quit()">退出登录</a>
   </div>
 </template>
 
 <script>
+  import { setCookie,getCookie,delCookie } from '../../../assets/js/cookie.js'
     export default {
       name: "member",
       data () {
@@ -39,12 +40,17 @@
         }
       },
       methods: {
-
+        quit(){
+          delCookie(getCookie('username'))
+        	delCookie('username')
+        	this.$router.push('/')
+        }
       }
 
     }
 </script>
 
 <style>
+
   @import "../../../assets/css/member.css";
 </style>

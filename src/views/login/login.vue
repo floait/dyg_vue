@@ -71,7 +71,7 @@
   .login-wrap{text-align:center;}
   input{display:block; width:250px; height:40px; line-height:40px; text-indent: 1.2em; margin:0 auto; margin-bottom: 10px; outline:none; border: none; padding:10px; box-sizing:border-box;}
   p{color:#FF0000;}
-  button{display:block; width:250px; height:40px; line-height: 40px; margin:0 auto; border:none; border-radius: 5px; background-color: rgb(22,127,245); color:#fff; font-size:16px; margin-bottom:5px;}
+  button{display:block; width:250px; height:40px; line-height: 40px; margin:0 auto !important; border:none; border-radius: 5px; background-color: rgb(22,127,245); color:#fff; font-size:16px; margin-bottom:5px;}
   span{cursor:pointer;color: rgb(22,127,245); font-size: 12px; }
   .align-left { width: 250px; margin: 0 auto; border: none; text-align: left; }
   .line {position: relative; display:block; width:250px; height:40px; line-height:40px; margin:0 auto; margin-bottom: 10px; outline:none;box-sizing:border-box; }
@@ -83,6 +83,10 @@
 
 <script>
 import { setCookie,getCookie } from '../../assets/js/cookie.js'
+import { getAesString,getDAesString,getAES,getDAes } from '../../assets/js/aes.js'
+    //apis/login
+    //apis//smscode/{moudle}
+
 	export default{
 		data(){
 			return{
@@ -108,6 +112,7 @@ import { setCookie,getCookie } from '../../assets/js/cookie.js'
 			}
 		},
 		mounted(){
+      // setCookie("username","1")
 			if(getCookie('username')){
 			  this.title = ""
 				this.$router.push('/home')
@@ -119,26 +124,28 @@ import { setCookie,getCookie } from '../../assets/js/cookie.js'
 				if(this.username == "" || this.password == ""){
 					alert("请输入用户名或密码")
 				}else{
-					let data = {'username':this.username,'password':this.password}
+					let data = {useraccount:this.number,userpwd:this.password,usertype:'0'}
 
-					this.$http.post('http://localhost/vueapi/index.php/Home/user/login',data).then((res)=>{
-						console.log(res)
-						if(res.data == -1){
-							this.tishi = "该用户不存在"
-							this.showTishi = true
-						}else if(res.data == 0){
-							this.tishi = "密码输入错误"
-							this.showTishi = true
-						}else if(res.data == 'admin'){
+					this.$http.post('/apis/login',data).then((res)=>{
+            let _data = JSON.parse(getDAes(res.bodyText))
+            console.log('data',_data)
+						if(_data.resultCode == 100){
+							this.tishi = _data.resultMsg
+						}else if(_data.resultCode == 201){
+							this.tishi =  _data.resultMsg
+						}else if(_data.resultCode == 'admin'){
 							this.$router.push('/main')
-						}else{
-							this.tishi = "登录成功"
-							this.showTishi = true
-							setCookie('username',this.username,1000*60)
+						}else if(_data.resultCode == 0){
+							this.tishi =  _data.resultMsg
+							setCookie('username',_data.data.useraccount,1000*60)
+              setCookie(getCookie('username'),_data.data.access_token,1000*60)
 							setTimeout(function(){
 								this.$router.push({path:'home',query:{id:1}})
 							}.bind(this),1000)
-						}
+						}else {
+              this.tishi = "未知错误"
+            }
+            this.showTishi = true
 					})
 				}
 			},
