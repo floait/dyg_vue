@@ -24,8 +24,8 @@ function getDAesString(encrypted,key,iv){//解密
 }
 export function getAES(data){ //加密
   "use strict";
-  const key  = '7*********7';  //密钥
-  const iv   = '1**********g';
+  const key  = '***********';  //密钥
+  const iv   = '************';
   const encrypted =getAesString(data,key,iv); //密文
   const encrypted1 =CryptoJS.enc.Utf8.parse(encrypted);
   return encrypted;
@@ -33,8 +33,8 @@ export function getAES(data){ //加密
 
 export function getDAes(data){//解密
   "use strict";
-  const key  = '776f*******67';  //密钥
-  const iv   = '1**********g';
+  const key  = '*************';  //密钥
+  const iv   = '************';
   // console.log('getDAes(',data,")");
   if(data == null || data == "" || data == undefined) return;
   const decryptedStr =getDAesString(data,key,iv);
